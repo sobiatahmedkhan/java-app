@@ -1,0 +1,30 @@
+pipeline {
+    agent any
+
+    stages{
+        stage ('building project') {
+            steps {
+                     {
+                    sh 'echo building the project'
+                }
+            }
+        }
+
+     stage ('creating docker image') {
+            steps {
+                script {
+                    sh 'echo creating docker image'
+                }
+            }
+        }
+
+     stage ('pushing docker image') {
+            steps {
+                script {
+                    sh 'pushing docker image'
+                }
+            }
+        } 
+               
+    }
+}
