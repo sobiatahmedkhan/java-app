@@ -13,7 +13,7 @@ pipeline {
      stage ('creating docker image') {
             steps {
                 script {
-                    sh 'echo creating docker image'
+                    sh 'docker build -t java-app .'
                 }
             }
         }
