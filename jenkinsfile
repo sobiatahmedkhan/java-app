@@ -23,10 +23,10 @@ pipeline {
                 script {
                     sh 'docker login -u "jimsparrow" -p "jim7777@@" docker.io'
                 }
-	}
-}
+	        }
+        }
 
-	stage ('pushing docker image') {
+	 stage ('pushing docker image') {
             steps {
                 script {
                     sh 'docker push jimsparrow/java-app:latest'
@@ -35,5 +35,5 @@ pipeline {
             }
         } 
                
-    
+    }
 }
