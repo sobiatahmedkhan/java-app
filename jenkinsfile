@@ -18,18 +18,20 @@ pipeline {
             }
         }
 
-     stage ('loging to docker-hub') {
+     stage ('pushing to docker-hub') {
             steps {
                 script {
-                    sh 'docker login -u "jimsparrow" -p "jim7777@@" docker.io'
+                    sh 'docker login'
+                    sh 'docker push jimsparrow/java-app:latest'
+                    sh 'docker logout'
                 }
 	        }
         }
 
-	 stage ('pushing docker image') {
+	 stage ('removing docker image') {
             steps {
                 script {
-                    sh 'docker push jimsparrow/java-app:latest'
+                    sh 'docker rmi java-app:latest'
                 }
 
             }
