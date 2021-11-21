@@ -23,6 +23,8 @@ pipeline {
                 script {
                     sh 'docker login -u "jimsparrow" -p "jim7777@@" docker.io'
                 }
+	}
+}
 
 	stage ('pushing docker image') {
             steps {
@@ -33,5 +35,5 @@ pipeline {
             }
         } 
                
-    }
+    
 }
