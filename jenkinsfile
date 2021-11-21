@@ -21,6 +21,7 @@ pipeline {
      stage ('pushing to docker-hub') {
             steps {
                 script {
+                    sh 'docker logout'
                     sh 'docker login'
                     sh 'docker push jimsparrow/java-app:latest'
                     sh 'docker logout'
