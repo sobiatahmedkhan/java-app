@@ -17,7 +17,7 @@ pipeline {
                 }
             }
         }
-	withCredentials(
+	withCredentials (
 		[usernamePassword(credentialsId: 'Docker Hub Credentials', passwordVariable: 'jim7777@', usernameVariable: 'jimsparrow')])
 			 {	 // the code here can access $pass and $user	
              }
