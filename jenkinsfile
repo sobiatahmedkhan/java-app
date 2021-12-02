@@ -28,7 +28,7 @@ pipeline {
                         withCredentials([
                         usernamePassword(credentialsId: 'docker-hub-credentials' , usernameVariable: 'USER' , passwordVariable:'PWD')
                         ]){
-                        sh 'docker login -u $USER -p $PWD' 
+                        sh "echo $PWD | docker login -u $USER --password-stdn" 
                         }
                     
                      sh 'docker push jimsparrow/java-app:latest'
