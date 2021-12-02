@@ -25,20 +25,22 @@ pipeline {
             steps {
                 script {
                     sh 'docker logout'
+                    withCredentials([
+                        usernamePassword(credentials: 'Docker Hub Credentials' , usernameVariable: USER , usernamePassword:PWD)
+                    ]){
+                        sh 'docker login -u ${USER} -p ${PWD} docker.io' 
+                        }
                     
-                
+                     sh 'docker push jimsparrow/java-app:latest'
+                     sh 'docker logout'
                     
                 }
 	        }
         }
 
-        withCredentials([
-                        usernamePassword(credentials: 'Docker Hub Credentials' , usernameVariable: USER , usernamePassword:PWD)
-                    ]){
-                        sh 'docker login -u ${USER} -p ${PWD} docker.io'
-                        sh 'docker push jimsparrow/java-app:latest'
-                        sh 'docker logout'
-                    }
+        
+                        
+                    
 
 	 stage ('removing docker image') {
             steps {
