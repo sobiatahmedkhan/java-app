@@ -19,9 +19,7 @@ pipeline {
             }
         }
 	    
-     withCredentials ([usernamePassword(credentialsId: 'Docker Hub Credentials', passwordVariable: '$pass', usernameVariable: '$user')])
-			 {	 // the code here can access $pass and $user	
-             }
+     
 
 	 stage ('pushing to docker-hub') {
             steps {
