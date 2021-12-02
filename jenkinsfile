@@ -1,9 +1,6 @@
 pipeline {
     agent any
-    enviourment{
-        DOCKER-CREDENTIALS = credentials('Docker Hub Credentials')
-
-    }
+    
     stages{
         stage ('building project') {
             steps {
@@ -30,7 +27,12 @@ pipeline {
             steps {
                 script {
                     sh 'docker logout'
-                    sh 'docker login'
+                    withCredentials([
+                        usernamePassword(credentials: 'Docker Hub Credentials' , usernameVariable: USER , usernamePassword:PWD)
+                    ]){
+                        sh 'docker login'
+                    }
+                    
                     sh 'docker push jimsparrow/java-app:latest'
                     sh 'docker logout'
                 }
