@@ -13,7 +13,7 @@ pipeline {
      stage ('creating docker image') {
             steps {
                 script {
-                    sh 'docker build -t java-app .'
+                    sh 'docker build -t jimsparrow/java-app:latest .'
                 }
     
             }
@@ -28,7 +28,7 @@ pipeline {
                         withCredentials([
                         usernamePassword(credentialsId: 'Docker Hub Credentials' , usernameVariable: 'USER' , passwordVariable:'PWD')
                         ]){
-                        sh 'docker login -u $USER -p $PWD docker.io' 
+                        sh 'docker login -u $USER -p $PWD' 
                         }
                     
                      sh 'docker push jimsparrow/java-app:latest'
