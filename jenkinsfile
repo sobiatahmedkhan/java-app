@@ -26,9 +26,8 @@ pipeline {
                 script {
                     sh 'docker logout'
                         withCredentials([
-                        usernamePassword(credentialsId: 'Docker Hub Credentials' , usernameVariable: 'USER' , passwordVariable:'PWD')
+                        usernamePassword(credentialsId: 'docker-hub-credentials' , usernameVariable: 'USER' , passwordVariable:'PWD')
                         ]){
-                        echo $USER
                         sh 'docker login -u $USER -p $PWD' 
                         }
                     
