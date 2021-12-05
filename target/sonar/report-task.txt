@@ -1,0 +1,6 @@
+projectKey=java-app-testing
+serverUrl=http://localhost:5000
+serverVersion=9.2.1.49989
+dashboardUrl=http://localhost:5000/dashboard?id=java-app-testing
+ceTaskId=AX2KdvsJYd3krB3uz11j
+ceTaskUrl=http://localhost:5000/api/ce/task?id=AX2KdvsJYd3krB3uz11j
