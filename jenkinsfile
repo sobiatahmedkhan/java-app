@@ -9,7 +9,7 @@ pipeline {
                 }
             }
         }
-    stages{
+    
         stage ('testing project') {
             steps {
                 script {
