@@ -14,9 +14,9 @@ pipeline {
             steps {
                 script {
                     sh 'mvn clean verify sonar:sonar \
-  -Dsonar.projectKey=java-app-testing \
-  -Dsonar.host.url=http://localhost:5000 \
-  -Dsonar.login=07526f87f409640a3e523fd2e75f4602e9ef7548'
+                    -Dsonar.projectKey=java-app-testing \
+                    -Dsonar.host.url=http://localhost:5000 \
+                    -Dsonar.login=07526f87f409640a3e523fd2e75f4602e9ef7548'
                 }
             }
         }
