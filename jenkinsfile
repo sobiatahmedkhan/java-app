@@ -59,7 +59,7 @@ pipeline {
 	 stage ('removing docker image') {
             steps {
                 script {
-                    sh 'docker rmi java-app'
+                    sh 'docker rmi jimsparrow/java-app:latest'
                 }
 
             }
